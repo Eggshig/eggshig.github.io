@@ -1,307 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Хонгор Чулуунцэцэг - Software Engineer</title>
-    <meta name="description" content="Senior Programmer, CTO, System Administrator. Орчин үеийн технологийн CV.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV | K - DevSecOps Engineer</title>
+    <meta
+      name="description"
+      content="Senior Programmer, CTO, System Administrator. Орчин үеийн технологийн CV."
+    />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Boxicons for modern tech icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Background Animated Elements -->
     <div class="bg-elements">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="grid-overlay"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-overlay"></div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">
-                <i class='bx bx-code-alt'></i> <span>Dev.Profile</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">Миний тухай</a></li>
-                <li><a href="#experience">Туршлага</a></li>
-                <li><a href="#skills">Ур чадвар</a></li>
-                <li><a href="#projects">Шийдлүүд</a></li>
-            </ul>
+      <div class="nav-content">
+        <div class="logo">
+          <i class="bx bx-code-alt"></i> <span>K-Dev</span>
         </div>
+
+        <div class="nav-right">
+          <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="mn">MN</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="bx bx-menu"></i>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav.about">Миний тухай</a></li>
+            <li>
+              <a href="#experience" data-i18n="nav.experience">Туршлага</a>
+            </li>
+            <li>
+              <a href="#analysis" data-i18n="nav.analysis"
+                >Туршлагын шинжилгээ</a
+              >
+            </li>
+            <li><a href="#skills" data-i18n="nav.skills">Ур чадвар</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Шийдлүүд</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-text">
-                <p class="greeting"><i class='bx bx-terminal'></i> Сайн байна уу, намайг</p>
-                <h1 class="name">Хонгор Чулуунцэцэг <span class="cursor">_</span></h1>
-                <h2 class="role-text">Би бол <span class="typing-text"></span></h2>
-                <p class="summary">
-                    Програм хангамжийн бакалавр зэрэгтэй, мэдээллийн технологийн салбарт олон талын туршлагатай мэргэжилтэн. 
-                    Инфраструктур, сүлжээ, програм хангамж хөгжүүлэлт, өгөгдлийн аналитик зэрэг чиглэлүүдээр гүнзгий мэдлэгтэй.
-                </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn primary-btn"><i class='bx bx-rocket' ></i> Гүйцэтгэсэн ажлууд</a>
-                    <a href="#contact" class="btn secondary-btn"><i class='bx bx-envelope' ></i> Холбогдох</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="tech-sphere">
-                    <div class="icon-orbit orbit-1"><i class='bx bxl-nodejs'></i></div>
-                    <div class="icon-orbit orbit-2"><i class='bx bxl-python'></i></div>
-                    <div class="icon-orbit orbit-3"><i class='bx bxl-go-lang'></i></div>
-                    <div class="icon-orbit orbit-4"><i class='bx bxl-aws'></i></div>
-                    <div class="icon-orbit orbit-5"><i class='bx bxl-docker'></i></div>
-                    <div class="center-core"><i class='bx bx-server'></i></div>
-                </div>
-            </div>
+      <div class="hero-container">
+        <div class="hero-text">
+          <p class="greeting">
+            <i class="bx bx-terminal"></i>
+            <span data-i18n="hero.greeting">Сайн байна уу, намайг</span>
+          </p>
+          <h1 class="name">
+            <span data-i18n="hero.name">Хонгор Чулуунцэцэг</span>
+            <span class="cursor">_</span>
+          </h1>
+          <h2 class="role-text">
+            <span data-i18n="hero.rolePrefix">Би бол </span
+            ><span class="typing-text"></span>
+          </h2>
+          <p class="summary" data-i18n="hero.summary">
+            Програм хангамжийн бакалавр зэрэгтэй, мэдээллийн технологийн салбарт
+            олон талын туршлагатай мэргэжилтэн. Инфраструктур, сүлжээ, програм
+            хангамж хөгжүүлэлт, өгөгдлийн аналитик зэрэг чиглэлүүдээр мэдлэгтэй.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary-btn"
+              ><i class="bx bx-rocket"></i>
+              <span data-i18n="hero.btnProjects">Гүйцэтгэсэн ажлууд</span></a
+            >
+            <a href="#contact" class="btn secondary-btn"
+              ><i class="bx bx-envelope"></i>
+              <span data-i18n="hero.btnContact">Холбогдох</span></a
+            >
+          </div>
         </div>
+        <div class="hero-visual">
+          <div class="tech-sphere">
+            <div class="icon-orbit orbit-1"><i class="bx bxl-nodejs"></i></div>
+            <div class="icon-orbit orbit-2"><i class="bx bxl-python"></i></div>
+            <div class="icon-orbit orbit-3"><i class="bx bxl-go-lang"></i></div>
+            <div class="icon-orbit orbit-4"><i class="bx bxl-aws"></i></div>
+            <div class="icon-orbit orbit-5"><i class="bx bxl-docker"></i></div>
+            <div class="center-core"><i class="bx bx-server"></i></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About & Certs Section -->
     <section class="section about-section" id="about">
-        <div class="section-header">
-            <h2 class="section-title"><span class="highlight">01.</span> Миний тухай</h2>
-            <div class="line"></div>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">01.</span>
+          <span data-i18n="about.title">Миний тухай</span>
+        </h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass-panel">
+          <i class="bx bx-user-pin card-icon"></i>
+          <h3 data-i18n="about.eduTitle">Боловсрол & Мэргэжил</h3>
+          <p data-i18n="about.eduDesc">
+            Програм хангамжийн бакалавр зэрэгтэй. Технологийн хурдацтай хувьсалд
+            дасан зохицож, байнга шинийг эрэлхийлж, суралцдаг.
+          </p>
+          <ul class="feature-list" id="edu-features-list">
+            <!-- Rendered by JS -->
+          </ul>
         </div>
-        
-        <div class="about-grid">
-            <div class="about-card glass-panel">
-                <i class='bx bx-user-pin card-icon'></i>
-                <h3>Боловсрол & Мэргэжил</h3>
-                <p>Програм хангамжийн бакалавр зэрэгтэй. Технологийн хурдацтай хувьсалд дасан зохицож, байнга шинийг эрэлхийлж, суралцдаг.</p>
-                <ul class="feature-list">
-                    <li><i class='bx bx-check-circle'></i> Асуудал шийдвэрлэх өндөр чадвар</li>
-                    <li><i class='bx bx-check-circle'></i> Багийн удирдлага болон төслийн менежмент</li>
-                    <li><i class='bx bx-check-circle'></i> Системийн архитектур төлөвлөлт</li>
-                </ul>
-            </div>
-            
-            <div class="about-card glass-panel">
-                <i class='bx bx-certification card-icon'></i>
-                <h3>Сертификат & Амжилтууд</h3>
-                <p>Мэргэжлийн түвшинд баталгаажсан ур чадварууд:</p>
-                <div class="tags">
-                    <span class="tag"><i class='bx bxs-award'></i> Data Analyst</span>
-                    <span class="tag"><i class='bx bxs-award'></i> Project Management</span>
-                    <span class="tag"><i class='bx bxs-award'></i> Python</span>
-                    <span class="tag"><i class='bx bxs-award'></i> C#</span>
-                    <span class="tag"><i class='bx bxs-award'></i> Node.js</span>
-                </div>
-                <div class="achievements mt-4">
-                    <h4><i class='bx bx-trophy'></i> Бусад амжилтууд:</h4>
-                    <ul class="feature-list">
-                        <li><i class='bx bx-code-alt'></i> <strong>LeetCode:</strong> Өндөр оноотой, алгоритм өгөгдлийн бүтцийн гүн мэдлэг</li>
-                        <li><i class='bx bx-shield-quarter'></i> <strong>HackTheBox:</strong> Кибер аюулгүй байдал, системийн хамгаалалтын ур чадвар</li>
-                    </ul>
-                </div>
-            </div>
+
+        <div class="about-card glass-panel">
+          <i class="bx bx-certification card-icon"></i>
+          <h3 data-i18n="about.certTitle">Сертификат & Амжилтууд</h3>
+          <p data-i18n="about.certDesc">
+            Мэргэжлийн түвшинд баталгаажсан ур чадварууд:
+          </p>
+          <div class="tags" id="cert-tags-list">
+            <!-- Rendered by JS -->
+          </div>
+          <div class="achievements mt-4">
+            <h4>
+              <i class="bx bx-trophy"></i>
+              <span data-i18n="about.achieveTitle">Бусад амжилтууд:</span>
+            </h4>
+            <ul class="feature-list" id="achievements-list">
+              <!-- Rendered by JS -->
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
     <section class="section exp-section" id="experience">
-        <div class="section-header">
-            <h2 class="section-title"><span class="highlight">02.</span> Ажлын туршлага</h2>
-            <div class="line"></div>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel">
-                    <div class="time-header">
-                        <h3 class="job-title">Chief Technology Officer (CTO)</h3>
-                    </div>
-                    <p class="job-desc">
-                        Технологийн багийг удирдаж, байгууллагын мэдээллийн технологийн стратеги, архитектурыг тодорхойлон, дэд бүтэц болон програм хангамжийн төслүүдийг амжилттай хэрэгжүүлсэн.
-                    </p>
-                </div>
-            </div>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">02.</span>
+          <span data-i18n="experience.title">Ажлын туршлага</span>
+        </h2>
+        <div class="line"></div>
+      </div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel">
-                    <div class="time-header">
-                        <h3 class="job-title">Senior Programmer</h3>
-                    </div>
-                    <p class="job-desc">
-                        Нарийн төвөгтэй системүүдийн хөгжүүлэлтийг хариуцаж, багийн бусад хөгжүүлэгчдийг чиглүүлэн, кодын чанар болон системийн найдвартай ажиллагааг хангасан.
-                    </p>
-                </div>
-            </div>
+      <div class="timeline" id="experience-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel">
-                    <div class="time-header">
-                        <h3 class="job-title">System Administrator</h3>
-                    </div>
-                    <p class="job-desc">
-                        Linux, Windows, macOS сервер болон хэрэглэгчийн компьютеруудын хэвийн ажиллагаа, аюулгүй байдлыг хангаж, дотоод сүлжээ, виртуалчлалын орчинг удирдсан.
-                    </p>
-                </div>
-            </div>
+    <!-- Analysis Section -->
+    <section class="section analysis-section" id="analysis">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">03.</span>
+          <span data-i18n="analysis.title"
+            >Технологийн ур чадвар ба Туршлагын шинжилгээ (Дэлгэрэнгүй)</span
+          >
+        </h2>
+        <div class="line"></div>
+      </div>
+      <p class="section-subtitle" data-i18n="analysis.desc">
+        Энэхүү матриц нь миний техникийн мэдлэг, системүүдийг хооронд нь
+        уялдуулах чадвар болон бизнесийн үйл ажиллагааг технологиор дэмжих
+        чадамжийг харуулна.
+      </p>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel">
-                    <div class="time-header">
-                        <h3 class="job-title">Programmer</h3>
-                    </div>
-                    <p class="job-desc">
-                        Төрөл бүрийн веб болон дотоод хэрэглээний системүүдийг хөгжүүлж, технологийн шинэ шийдлүүдийг нэвтрүүлэхэд идэвхтэй оролцсон.
-                    </p>
-                </div>
-            </div>
-        </div>
+      <div class="analysis-grid" id="analysis-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="analysis-summary glass-panel mt-4">
+        <h3 data-i18n="analysis.summaryTitle">
+          Гол үр нөлөөний нарийвчилсан дүгнэлт & Хамтын ажиллагаа
+        </h3>
+        <ul class="feature-list" id="analysis-summary-list">
+          <!-- Rendered by JS -->
+        </ul>
+      </div>
     </section>
 
     <!-- Skills Section -->
     <section class="section skills-section" id="skills">
-        <div class="section-header">
-            <h2 class="section-title"><span class="highlight">03.</span> Технологийн мэдлэг</h2>
-            <div class="line"></div>
-        </div>
-        <p class="section-subtitle">Дундаас дээш түвшинд эзэмшсэн технологиуд болон хэрэгслүүд</p>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">04.</span>
+          <span data-i18n="skills.title">Технологийн мэдлэг</span>
+        </h2>
+        <div class="line"></div>
+      </div>
+      <p class="section-subtitle" data-i18n="skills.subtitle">
+        Дундаас дээш түвшинд эзэмшсэн технологиуд болон хэрэгслүүд
+      </p>
 
-        <div class="skills-grid">
-            <div class="skill-category glass-panel">
-                <div class="category-icon"><i class='bx bx-code-curly'></i></div>
-                <h3>Хэл & Фреймворк</h3>
-                <div class="skill-items">
-                    <div class="skill-item"><i class='bx bxl-python'></i> Python</div>
-                    <div class="skill-item"><i class='bx bxl-nodejs'></i> Node.js</div>
-                    <div class="skill-item"><i class='bx bxl-go-lang'></i> Go</div>
-                    <div class="skill-item"><i class='bx bxl-php'></i> PHP</div>
-                    <div class="skill-item">C#</div>
-                    <div class="skill-item"><i class='bx bxl-react'></i> Next.js</div>
-                    <div class="skill-item">NestJS</div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-panel">
-                <div class="category-icon"><i class='bx bx-data'></i></div>
-                <h3>Өгөгдлийн сан</h3>
-                <div class="skill-items">
-                    <div class="skill-item"><i class='bx bxl-postgresql'></i> PostgreSQL</div>
-                    <div class="skill-item"><i class='bx bxl-mongodb'></i> MongoDB</div>
-                    <div class="skill-item">MySQL</div>
-                    <div class="skill-item">ScyllaDB</div>
-                    <div class="skill-item">Redis</div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-panel">
-                <div class="category-icon"><i class='bx bx-cloud'></i></div>
-                <h3>Үүлэн технологи & Дэд бүтэц</h3>
-                <div class="skill-items">
-                    <div class="skill-item"><i class='bx bxl-aws'></i> AWS</div>
-                    <div class="skill-item"><i class='bx bxl-google-cloud'></i> Google Cloud</div>
-                    <div class="skill-item">VMWare</div>
-                    <div class="skill-item">Proxmox</div>
-                    <div class="skill-item"><i class='bx bxl-windows'></i> Windows Server</div>
-                    <div class="skill-item"><i class='bx bxl-apple'></i> macOS</div>
-                    <div class="skill-item"><i class='bx bxl-tux'></i> Linux</div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-panel">
-                <div class="category-icon"><i class='bx bx-server'></i></div>
-                <h3>Вэб сервер & Бусад</h3>
-                <div class="skill-items">
-                    <div class="skill-item">Nginx</div>
-                    <div class="skill-item">Apache</div>
-                    <div class="skill-item">n8n (Automation)</div>
-                </div>
-            </div>
-        </div>
+      <div class="skills-grid" id="skills-list">
+        <!-- Rendered by JS -->
+      </div>
     </section>
 
     <!-- Projects / Solutions Section -->
     <section class="section projects-section" id="projects">
-        <div class="section-header">
-            <h2 class="section-title"><span class="highlight">04.</span> Гүйцэтгэсэн шийдлүүд</h2>
-            <div class="line"></div>
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">05.</span>
+          <span data-i18n="projects.title">Гүйцэтгэсэн шийдлүүд</span>
+        </h2>
+        <div class="line"></div>
+      </div>
 
-        <div class="projects-grid">
-            <div class="project-card glass-panel">
-                <div class="project-content">
-                    <div class="project-type">Интеграци & Аюулгүй байдал</div>
-                    <h3 class="project-title">Тоон гарын үсгийн холболт</h3>
-                    <p class="project-desc">
-                        Байгууллагын системүүдэд албан ёсны тоон гарын үсгийн технологийг амжилттай нэвтрүүлж, баримт бичгийн цахим шилжилтийг хурдасгасан.
-                    </p>
-                    <div class="project-tech">
-                        <span>Cryptography</span> <span>API Integration</span> <span>Security</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-panel">
-                <div class="project-content">
-                    <div class="project-type">Хяналт хамгаалалт (IoT)</div>
-                    <h3 class="project-title">Хяналтын камер & Төхөөрөмжийн интеграци</h3>
-                    <p class="project-desc">
-                        ZKTeco, Hikvision, Dahua зэрэг тэргүүлэх брэндүүдийн төхөөрөмжүүдтэй програм хангамжийн түвшинд харилцан ажиллах, мэдээлэл цуглуулах шийдлийг боловсруулсан.
-                    </p>
-                    <div class="project-tech">
-                        <span>ZKTeco</span> <span>Hikvision</span> <span>Dahua</span> <span>SDK</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-panel">
-                <div class="project-content">
-                    <div class="project-type">Техник хангамж (RFID)</div>
-                    <h3 class="project-title">RFID UHF хяналтын шийдэл</h3>
-                    <p class="project-desc">
-                        RFID болон UHF технологиудыг ашиглан бараа материал болон хүмүүсийн хөдөлгөөнийг бүртгэх, удирдах төрөл бүрийн хяналт хамгаалалтын системүүдийг нэвтрүүлсэн.
-                    </p>
-                    <div class="project-tech">
-                        <span>RFID</span> <span>UHF</span> <span>Automation</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card glass-panel">
-                <div class="project-content">
-                    <div class="project-type">Дэд бүтэц</div>
-                    <h3 class="project-title">Сервер & Сүлжээний удирдлага</h3>
-                    <p class="project-desc">
-                        Байгууллагын дотоод серверүүд (Linux, Windows, macOS) болон виртуалчлалын (VMWare, Proxmox) архитектурыг зохион байгуулж, тасралтгүй ажиллагааг хангасан.
-                    </p>
-                    <div class="project-tech">
-                        <span>Linux</span> <span>VMWare</span> <span>Proxmox</span> <span>Networking</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="projects-grid" id="projects-list">
+        <!-- Rendered by JS -->
+      </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#"><i class='bx bxl-github'></i></a>
-                <a href="#"><i class='bx bxl-linkedin'></i></a>
-                <a href="#"><i class='bx bx-envelope'></i></a>
-            </div>
-            <p>Built with <i class='bx bxs-heart' style="color: var(--primary);"></i> by Хонгор Чулуунцэцэг</p>
-            <p class="copyright">&copy; 2026 All rights reserved.</p>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#"><i class="bx bxl-github"></i></a>
+          <a href="#"><i class="bx bxl-linkedin"></i></a>
+          <a href="#"><i class="bx bx-envelope"></i></a>
         </div>
+        <p>
+          <span data-i18n="footer.builtWith">Built with</span>
+          <i class="bx bxs-heart" style="color: var(--primary)"></i>
+          <span data-i18n="footer.by">by K</span>
+        </p>
+        <p class="copyright" data-i18n="footer.rights">
+          &copy; 2026 All rights reserved.
+        </p>
+      </div>
     </footer>
 
+    <!-- Load data first, then script -->
+    <script src="data.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
