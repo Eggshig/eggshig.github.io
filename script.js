@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Language Setup
     let currentLang = localStorage.getItem('cv_lang') || 'mn';
     const langBtns = document.querySelectorAll('.lang-btn');
+    const navbar = document.querySelector('.navbar');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    let revealObserver;
+    let sectionObserver;
 
     // Update active button state
     function updateBtnState() {
@@ -62,6 +68,74 @@ document.addEventListener('DOMContentLoaded', () => {
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
     }
 
+    function initRevealAnimations() {
+        const revealTargets = document.querySelectorAll(
+            '.hero-text, .hero-visual, .section-header, .section-subtitle, .glass-panel, footer .social-links, footer p'
+        );
+
+        if (!revealTargets.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            revealTargets.forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+
+        if (revealObserver) revealObserver.disconnect();
+
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.14,
+            rootMargin: '0px 0px -8% 0px'
+        });
+
+        revealTargets.forEach((el, index) => {
+            el.classList.add('reveal-item');
+            el.style.setProperty('--reveal-delay', `${Math.min(index * 35, 280)}ms`);
+            revealObserver.observe(el);
+        });
+    }
+
+    function initActiveNavObserver() {
+        if (!('IntersectionObserver' in window) || !navAnchorLinks.length) return;
+
+        const sections = Array.from(navAnchorLinks)
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        if (!sections.length) return;
+        if (sectionObserver) sectionObserver.disconnect();
+
+        sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const currentId = `#${entry.target.id}`;
+                navAnchorLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === currentId);
+                });
+            });
+        }, {
+            rootMargin: '-36% 0px -50% 0px',
+            threshold: 0.01
+        });
+
+        sections.forEach(section => sectionObserver.observe(section));
+    }
+
+    function updateNavbarState() {
+        if (!navbar) return;
+        if (window.scrollY > 30) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
     function renderContent(lang) {
         const data = cvData[lang];
         if (!data) return;
@@ -117,18 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.analysis) {
             const analysisList = document.getElementById('analysis-list');
             analysisList.innerHTML = data.analysis.list.map(item => `
-                <div class="project-card glass-panel" style="margin-bottom: 0;">
+                <div class="project-card glass-panel analysis-card">
                     <div class="project-content">
                         <div class="project-type">${item.category}</div>
-                        <h3 class="project-title" style="font-size: 1.1rem; margin-bottom: 10px;">${item.tools}</h3>
-                        <p class="project-desc" style="font-size: 0.95rem;">${item.impact}</p>
+                        <h3 class="project-title analysis-tools">${item.tools}</h3>
+                        <p class="project-desc analysis-impact">${item.impact}</p>
                     </div>
                 </div>
             `).join('');
 
             const analysisSummaryList = document.getElementById('analysis-summary-list');
             analysisSummaryList.innerHTML = data.analysis.summaryItems.map(item => `
-                <li class="analysis-summary-item" style="margin-bottom: 15px;">
+                <li class="analysis-summary-item">
                     <i class='bx bx-check-circle'></i> 
                     <div><strong>${item.label}:</strong> ${item.text}</div>
                 </li>
@@ -165,11 +239,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `).join('');
+
+        initRevealAnimations();
     }
 
     // Initialize
     updateBtnState();
     renderContent(currentLang);
+    initActiveNavObserver();
+    updateNavbarState();
 
     // Language switch listener
     langBtns.forEach(btn => {
@@ -185,18 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    window.addEventListener('scroll', updateNavbarState);
 
     if (mobileMenu) {
         mobileMenu.addEventListener('click', () => {
@@ -211,6 +278,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileMenu?.querySelector('i');
+            if (icon) {
+                icon.classList.remove('bx-x');
+                icon.classList.add('bx-menu');
+            }
+        }
+    });
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

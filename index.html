@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- Boxicons for modern tech icons -->
@@ -61,6 +61,7 @@
             </li>
             <li><a href="#skills" data-i18n="nav.skills">Ур чадвар</a></li>
             <li><a href="#projects" data-i18n="nav.projects">Шийдлүүд</a></li>
+            <li><a href="#news">Мэдээ</a></li>
           </ul>
         </div>
       </div>
@@ -235,7 +236,35 @@
       </div>
     </section>
 
-    <footer>
+    <!-- News Section -->
+    <section class="section news-section" id="news">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="highlight">06.</span>
+          <span>Мэдээ мэдээлэл</span>
+        </h2>
+        <div class="line"></div>
+      </div>
+      <p class="section-subtitle">
+        Medium дээр нийтэлсэн бичвэрүүд.
+      </p>
+      <div class="medium-frame glass-panel">
+        <div class="medium-frame-header">
+          <span><i class="bx bxl-medium"></i> medium.com/@egshig.giiguulegch</span>
+          <a href="https://medium.com/@egshig.giiguulegch" target="_blank" rel="noopener">
+            Нээх <i class="bx bx-link-external"></i>
+          </a>
+        </div>
+        <iframe
+          src="https://medium.com/@egshig.giiguulegch"
+          title="Medium profile - egshig.giiguulegch"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer id="contact">
       <div class="footer-content">
         <div class="social-links">
           <a href="#"><i class="bx bxl-github"></i></a>
@@ -244,7 +273,7 @@
         </div>
         <p>
           <span data-i18n="footer.builtWith">Built with</span>
-          <i class="bx bxs-heart" style="color: var(--primary)"></i>
+          <i class="bx bxs-heart footer-heart"></i>
           <span data-i18n="footer.by">by K</span>
         </p>
         <p class="copyright" data-i18n="footer.rights">

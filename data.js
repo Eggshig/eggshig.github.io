@@ -9,7 +9,7 @@ const cvData = {
     hero: {
       greeting: "Сайн байна уу, намайг",
       name: "Чулуунцэцэг Хонгор",
-      roles: ["Senior Programmer", "Chief Technology Officer", "System Administrator", "Data Analyst", "Software Engineer"],
+      roles: ["Programmer", "CTO", "System Administrator", "Data Analyst", "System designer"],
       rolePrefix: "Би бол ",
       summary: "Програм хангамжийн бакалавр зэрэгтэй, мэдээллийн технологийн салбарт олон талын туршлагатай мэргэжилтэн. Инфраструктур, сүлжээ, програм хангамж хөгжүүлэлт, өгөгдлийн аналитик зэрэг чиглэлүүдээр гүнзгий мэдлэгтэй.",
       btnProjects: "Гүйцэтгэсэн ажлууд",
@@ -192,7 +192,7 @@ const cvData = {
     },
     footer: {
       builtWith: "Built with",
-      by: "by Чулуунцэцэг Хонгор",
+      by: "by K",
       rights: "© 2026 All rights reserved."
     }
   },
@@ -389,7 +389,7 @@ const cvData = {
     },
     footer: {
       builtWith: "Built with",
-      by: "by Khongor Chuluuntsetseg",
+      by: "by K",
       rights: "© 2026 All rights reserved."
     }
   }
