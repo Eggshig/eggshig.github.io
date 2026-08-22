@@ -12,6 +12,7 @@ const cvData = {
       roles: ["Programmer", "CTO", "System Administrator", "Data Analyst", "System designer"],
       rolePrefix: "Би бол ",
       summary: "Програм хангамжийн бакалавр зэрэгтэй, мэдээллийн технологийн салбарт олон талын туршлагатай мэргэжилтэн. Инфраструктур, сүлжээ, програм хангамж хөгжүүлэлт, өгөгдлийн аналитик зэрэг чиглэлүүдээр гүнзгий мэдлэгтэй.",
+      btnDownloadCV: "PDF CV татах",
       btnProjects: "Гүйцэтгэсэн ажлууд",
       btnContact: "Холбогдох"
     },
@@ -48,7 +49,7 @@ const cvData = {
           title: "System Administrator",
           desc: "Linux, Windows, macOS сервер болон хэрэглэгчийн компьютеруудын хэвийн ажиллагаа, аюулгүй байдлыг хангаж, дотоод сүлжээ, виртуалчлалын орчинг удирдсан."
         },
-        { 
+        {
           title: "Programmer",
           desc: "Төрөл бүрийн веб болон дотоод хэрэглээний системүүдийг хөгжүүлж, технологийн шинэ шийдлүүдийг нэвтрүүлэхэд идэвхтэй оролцсон."
         }
@@ -78,7 +79,8 @@ const cvData = {
             { icon: "bxl-postgresql", name: "PostgreSQL" },
             { icon: "bxl-postgresql", name: "OracleSQL" },
             { icon: "bxl-mongodb", name: "MongoDB" },
-            { icon: "", name: "MySQL" },
+            { icon: "bxl-microsoft-sql", name: "MSSQL" },
+            { icon: "bxl-mysql", name: "MySQL" },
             { icon: "", name: "ScyllaDB" },
             { icon: "", name: "Redis" }
           ]
@@ -102,7 +104,8 @@ const cvData = {
           items: [
             { icon: "", name: "Nginx" },
             { icon: "", name: "Apache" },
-            { icon: "", name: "n8n (Automation)" }
+            { icon: "", name: "n8n (Automation)" },
+            { icon: "bxl-chatgpt", name: "AI Automation" }
           ]
         }
       ]
@@ -209,6 +212,7 @@ const cvData = {
       roles: ["Senior Programmer", "Chief Technology Officer", "System Administrator", "Data Analyst", "Software Engineer"],
       rolePrefix: "I am a ",
       summary: "Bachelor's degree in Software Engineering and versatile IT professional. Deeply knowledgeable in infrastructure, networking, software development, and data analytics.",
+      btnDownloadCV: "Download PDF CV",
       btnProjects: "View Projects",
       btnContact: "Contact Me"
     },
@@ -275,7 +279,8 @@ const cvData = {
             { icon: "bxl-postgresql", name: "PostgreSQL" },
             { icon: "bxl-postgresql", name: "OracleSQL" },
             { icon: "bxl-mongodb", name: "MongoDB" },
-            { icon: "", name: "MySQL" },
+            { icon: "bxl-microsoft-sql", name: "MSSQL" },
+            { icon: "bxl-mysql", name: "MySQL" },
             { icon: "", name: "ScyllaDB" },
             { icon: "", name: "Redis" }
           ]
@@ -299,7 +304,8 @@ const cvData = {
           items: [
             { icon: "", name: "Nginx" },
             { icon: "", name: "Apache" },
-            { icon: "", name: "n8n (Automation)" }
+            { icon: "", name: "n8n (Automation)" },
+            { icon: "bxl-chatgpt", name: "AI Automation" }
           ]
         }
       ]

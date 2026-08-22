@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Able ERP + MCP Интеграцийн Төлөвлөгөө</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7; /* Warm Neutral Background */
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d97706; /* Amber-600 */
+        }
+        .active-tab {
+            border-bottom: 2px solid #d97706;
+            color: #d97706;
+        }
+        .node-connector {
+            height: 2px;
+            background: #cbd5e1;
+            flex-grow: 1;
+            position: relative;
+        }
+        .node-connector::after {
+            content: '▶';
+            position: absolute;
+            right: -5px;
+            top: -7px;
+            font-size: 10px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<!-- Chosen Palette: Warm Harmony (Neutrals, Amber, Slate) -->
+<!-- Application Structure Plan: 
+    1. Hero Section: Төслийн ерөнхий зорилго.
+    2. Architecture Section: Системийн бүтцийг интерактив диаграмм хэлбэрээр (Tailwind CSS ашиглан) харуулах.
+    3. Opportunity Explorer: MCP боломжуудын жагсаалтыг модулиар шүүх, хайх боломжтой болгох. 
+    4. Code & Implementation: Техникийн жишээ кодыг таб хэлбэрт оруулах.
+    5. Analytics: AI нэвтрүүлснээр гарах үр ашгийг Chart.js-ээр дүрслэх.
+-->
+<!-- Visualization & Content Choices: 
+    - Architecture: HTML/Tailwind ашиглан "Data Flow" диаграмм (SVG-гүй).
+    - Features: Searchable Filterable List (JS ашиглан).
+    - Module Distribution: Doughnut Chart (Chart.js) - Аль модуль хамгийн их AI боломжтойг харуулах.
+    - Efficiency Gain: Bar Chart - Гар ажиллагаа vs AI тусламжтай цаг зарцуулалт.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-amber-600 rounded flex items-center justify-center text-white font-bold">A</div>
+                <span class="font-bold text-xl tracking-tight">Able <span class="text-amber-600">MCP</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#arch" class="nav-link">Архитектур</a>
+                <a href="#features" class="nav-link">Боломжууд</a>
+                <a href="#code" class="nav-link">Техник</a>
+                <a href="#impact" class="nav-link">Үр нөлөө</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <!-- Hero Section -->
+            <section class="mb-16 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+                    Able ERP + AI: MCP Интеграцийн Төлөвлөгөө
+                </h1>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    Gemini 3.5 Flash болон Python MCP-д суурилсан "Ухаалаг Туслах"-ыг Able ERP системд нэвтрүүлж, байгууллагын бүтээмжийг шинэ шатанд гаргах цогц зураглал.
+                </p>
+            </section>
+
+            <!-- Architecture Section -->
+            <section id="arch" class="mb-20">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-2">1. Техникийн Архитектур</h2>
+                    <p class="text-slate-600">Next.js болон Python-д суурилсан MCP Client-Server бүтэц. Өгөгдлийн урсгалыг доорх диаграммаас харна уу.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 overflow-x-auto">
+                    <div class="min-w-[800px] flex items-center justify-between">
+                        <!-- Frontend -->
+                        <div class="flex flex-col items-center w-48 p-4 rounded-xl border-2 border-slate-200 bg-white shadow-sm">
+                            <span class="text-xs font-bold text-slate-400 uppercase mb-2">Frontend</span>
+                            <div class="text-center font-semibold">Next.js & jQuery</div>
+                        </div>
+
+                        <div class="node-connector mx-2"></div>
+
+                        <!-- MCP Client -->
+                        <div class="flex flex-col items-center w-64 p-4 rounded-xl border-2 border-amber-500 bg-amber-50 shadow-sm relative">
+                            <span class="text-xs font-bold text-amber-600 uppercase mb-2">MCP Client (AI Orchestrator)</span>
+                            <div class="text-center font-bold">Python FastAPI</div>
+                            <div class="absolute -top-10 text-[10px] bg-slate-800 text-white px-2 py-1 rounded">Gemini API</div>
+                        </div>
+
+                        <div class="node-connector mx-2"></div>
+
+                        <!-- MCP Server -->
+                        <div class="flex flex-col items-center w-64 p-4 rounded-xl border-2 border-slate-800 bg-slate-800 text-white shadow-md">
+                            <span class="text-xs font-bold text-slate-400 uppercase mb-2">MCP Server (Tools)</span>
+                            <div class="text-center font-semibold">Python FastMCP</div>
+                        </div>
+
+                        <div class="node-connector mx-2"></div>
+
+                        <!-- DB -->
+                        <div class="flex flex-col items-center w-48 p-4 rounded-xl border-2 border-slate-200 bg-white shadow-sm">
+                            <span class="text-xs font-bold text-slate-400 uppercase mb-2">Databases</span>
+                            <div class="text-center font-semibold">PostgreSQL / MySQL</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                        <div class="p-4 bg-slate-50 rounded-lg">
+                            <h4 class="font-bold mb-2">AI Оркестратор</h4>
+                            <p>Gemini загварыг функцуудтай холбож, хэрэглэгчийн хүсэлтийг "Action" болгон хувиргана.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg">
+                            <h4 class="font-bold mb-2">Tool Execution</h4>
+                            <p>Баазтай шууд харилцаж, аюулгүй байдлыг хангасан байдлаар дата шүүх функцуудыг ажиллуулна.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg">
+                            <h4 class="font-bold mb-2">UI Dynamic Action</h4>
+                            <p>AI-аас ирсэн JSON үр дүнгээр вэб дээрх модал, форм автоматаар бөглөгдөж нээгдэнэ.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Opportunity Explorer -->
+            <section id="features" class="mb-20">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">2. Интеграцийн боломжууд</h2>
+                        <p class="text-slate-600">Able ERP-ийн модулиудыг AI-тай холбосон бодит хэрэглээний кэйсүүд.</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <input type="text" id="featureSearch" placeholder="Хайх..." class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <select id="moduleFilter" class="px-4 py-2 border rounded-lg bg-white">
+                            <option value="all">Бүх модулиуд</option>
+                            <option value="Admin">Навигаци & Админ</option>
+                            <option value="Project">Төсөл & Төлөвлөлт</option>
+                            <option value="HR">Хүний Нөөц & HR</option>
+                            <option value="Doc">Албан Хэрэг</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="featureGrid">
+                    <!-- Features will be injected here via JS -->
+                </div>
+            </section>
+
+            <!-- Technical Samples -->
+            <section id="code" class="mb-20">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-2">3. Техникийн хэрэгжилт (Python)</h2>
+                    <p class="text-slate-600">MCP Server болон Client-ийн суурь код болон Frontend холболт.</p>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <div class="flex bg-slate-100 border-b overflow-x-auto">
+                        <button onclick="switchTab('server')" class="code-tab px-6 py-4 text-sm font-semibold active-tab" id="tab-server">MCP Server</button>
+                        <button onclick="switchTab('client')" class="code-tab px-6 py-4 text-sm font-semibold" id="tab-client">MCP Client</button>
+                        <button onclick="switchTab('frontend')" class="code-tab px-6 py-4 text-sm font-semibold" id="tab-frontend">Frontend (jQuery)</button>
+                    </div>
+                    <div class="p-6">
+                        <div id="code-server" class="code-container">
+<pre class="code-block"><code>@mcp.tool()
+def prepare_task_payload(assignee_name: str, title: str):
+    # Ажилтны ID-г нэрээр нь хайж олох
+    user = db.query("SELECT id FROM users WHERE name LIKE %s", f"%{assignee_name}%")
+    
+    return {
+        "action": "OPEN_MODAL",
+        "module": "tasks",
+        "fields": { "title": title, "assignee_id": user.id }
+    }</code></pre>
+                        </div>
+                        <div id="code-client" class="code-container hidden">
+<pre class="code-block"><code>@app.post("/api/ai/chat")
+async def process_ai_prompt(req: PromptRequest):
+    response = ai_client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=req.prompt,
+        config=GenerateContentConfig(tools=[mcp_tools])
+    )
+    # Gemini MCP хэрэгслийг ашиглан Action буцаана
+    return response.function_calls[0].execute()</code></pre>
+                        </div>
+                        <div id="code-frontend" class="code-container hidden">
+<pre class="code-block"><code>$.post('/api/ai/chat', { prompt: userPrompt }, function(res) {
+    if (res.action === "OPEN_MODAL") {
+        $('#' + res.module + 'Modal').modal('show');
+        Object.keys(res.fields).forEach(key => {
+            $('[name=' + key + ']').val(res.fields[key]);
+        });
+    }
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Impact Analytics -->
+            <section id="impact" class="mb-20">
+                <div class="mb-8 text-center">
+                    <h2 class="text-2xl font-bold mb-2">4. Үр нөлөөний шинжилгээ</h2>
+                    <p class="text-slate-600">AI нэвтрүүлснээр систем доторх үйл ажиллагаанд гарах өөрчлөлт.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="text-center font-bold mb-4 text-slate-500 uppercase text-xs">Модулиудын AI боломжийн тархалт</h4>
+                        <div class="chart-container">
+                            <canvas id="moduleChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="text-center font-bold mb-4 text-slate-500 uppercase text-xs">Ажил зарцуулалтын хэмнэлт (Цагаар)</h4>
+                        <div class="chart-container">
+                            <canvas id="efficiencyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">© 2024 Able ERP - AI Интеграцийн Стратеги</p>
+            <p class="text-sm">Python FastMCP + Google Gemini 3.5 Flash</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data for Explorer
+        const features = [
+            { id: 1, category: 'Admin', title: 'Ухаалаг Навигаци', prompt: '"Чөлөө авах цонх нээгээд өг"', tool: 'get_navigation', action: 'Автомат Redirect', impact: 'High' },
+            { id: 2, category: 'Project', title: 'WBS Төсөл Задрал', prompt: '"Шинэ төслийн үе шатуудыг үүсгэ"', tool: 'generate_wbs', action: 'Gantt Chart бөглөх', impact: 'Critical' },
+            { id: 3, category: 'Doc', title: 'Албан Бичиг Төсөл', prompt: '"Гэрээ сунгах хүсэлт бэлд"', tool: 'create_doc_draft', action: 'Editor-т текст оруулах', impact: 'Medium' },
+            { id: 4, category: 'HR', title: 'Чөлөөний хүсэлт', prompt: '"Маргааш эмнэлэг явах чөлөө авъя"', tool: 'request_leave', action: 'Форм авто-бөглөх', impact: 'High' },
+            { id: 5, category: 'HR', title: 'KPI Аналитик', prompt: '"Энэ сарын шилдэг 5 ажилтныг харуул"', tool: 'get_performance', action: 'Интерактив График', impact: 'High' },
+            { id: 6, category: 'Admin', title: 'Санамж Үүсгэх', prompt: '"17:00 цагт уулзалттайг сануул"', tool: 'create_reminder', action: 'Push Notification', impact: 'Medium' },
+            { id: 7, category: 'Project', title: 'Даалгавар Хуваарилалт', prompt: '"Ганболдод тайлангийн ажил өг"', tool: 'prepare_payload', action: 'Modal нээх', impact: 'High' }
+        ];
+
+        // UI Logic
+        function renderFeatures(filter = 'all', search = '') {
+            const grid = document.getElementById('featureGrid');
+            grid.innerHTML = '';
+            
+            const filtered = features.filter(f => {
+                const matchesFilter = filter === 'all' || f.category === filter;
+                const matchesSearch = f.title.toLowerCase().includes(search.toLowerCase()) || 
+                                     f.prompt.toLowerCase().includes(search.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            filtered.forEach(f => {
+                const card = document.createElement('div');
+                card.className = 'glass-card p-6 rounded-2xl border-l-4 ' + 
+                    (f.category === 'Project' ? 'border-amber-500' : f.category === 'HR' ? 'border-blue-500' : 'border-slate-500');
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase text-slate-600">${f.category}</span>
+                        <span class="text-[10px] font-bold text-amber-600 uppercase">Impact: ${f.impact}</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">${f.title}</h3>
+                    <p class="text-xs italic text-slate-500 mb-4 bg-white p-2 rounded border border-dashed">${f.prompt}</p>
+                    <div class="text-xs space-y-1">
+                        <div class="flex justify-between"><span class="text-slate-400">MCP Tool:</span> <code class="bg-slate-50 px-1">${f.tool}</code></div>
+                        <div class="flex justify-between"><span class="text-slate-400">Result:</span> <span class="font-medium">${f.action}</span></div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Search & Filter Listeners
+        document.getElementById('featureSearch').addEventListener('input', (e) => {
+            renderFeatures(document.getElementById('moduleFilter').value, e.target.value);
+        });
+        document.getElementById('moduleFilter').addEventListener('change', (e) => {
+            renderFeatures(e.target.value, document.getElementById('featureSearch').value);
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.code-container').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active-tab'));
+            
+            document.getElementById('code-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+        }
+
+        // Charts Initialization
+        window.onload = () => {
+            renderFeatures();
+
+            // Module Distribution Chart
+            new Chart(document.getElementById('moduleChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Админ/Навигаци', 'Төсөл', 'Хүний Нөөц', 'Албан Бичиг', 'Бусад'],
+                    datasets: [{
+                        data: [20, 35, 25, 15, 5],
+                        backgroundColor: ['#94a3b8', '#d97706', '#3b82f6', '#0f172a', '#e2e8f0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } }
+                }
+            });
+
+            // Efficiency Chart
+            new Chart(document.getElementById('efficiencyChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Даалгавар үүсгэх', 'Албан бичиг төлөвлөх', 'Чөлөө авах', 'Тайлан нэгтгэх'],
+                    datasets: [
+                        { label: 'Гар ажиллагаа', data: [10, 30, 5, 60], backgroundColor: '#cbd5e1' },
+                        { label: 'AI + MCP', data: [2, 5, 1, 10], backgroundColor: '#d97706' }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Минут' } } }
+                }
+            });
+        };
+    </script>
+</body>
+</html>

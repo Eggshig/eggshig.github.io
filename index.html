@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Mouse Glow Effect -->
+    <div class="mouse-glow" id="mouse-glow"></div>
+
     <!-- Background Animated Elements -->
     <div class="bg-elements">
       <div class="blob blob-1"></div>
@@ -31,6 +37,9 @@
       <div class="blob blob-3"></div>
       <div class="grid-overlay"></div>
     </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -40,6 +49,10 @@
         </div>
 
         <div class="nav-right">
+          <button id="nav-btn-download-pdf" class="nav-pdf-btn" type="button" title="Download PDF CV" aria-label="Download PDF CV">
+            <i class="bx bxs-file-pdf"></i> <span class="nav-pdf-text">PDF CV</span>
+          </button>
+
           <div class="lang-toggle">
             <button class="lang-btn active" data-lang="mn">MN</button>
             <button class="lang-btn" data-lang="en">EN</button>
@@ -89,6 +102,10 @@
             хангамж хөгжүүлэлт, өгөгдлийн аналитик зэрэг чиглэлүүдээр мэдлэгтэй.
           </p>
           <div class="hero-actions">
+            <button id="btn-download-pdf" class="btn cv-download-btn" type="button">
+              <i class="bx bxs-file-pdf"></i>
+              <span data-i18n="hero.btnDownloadCV">PDF CV татах</span>
+            </button>
             <a href="#projects" class="btn primary-btn"
               ><i class="bx bx-rocket"></i>
               <span data-i18n="hero.btnProjects">Гүйцэтгэсэн ажлууд</span></a
@@ -109,6 +126,12 @@
             <div class="center-core"><i class="bx bx-server"></i></div>
           </div>
         </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
@@ -282,6 +305,13 @@
       </div>
     </footer>
 
+    <!-- HTML2PDF Library for professional PDF export -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- Load data first, then script -->
     <script src="data.js"></script>
     <script src="script.js"></script>
