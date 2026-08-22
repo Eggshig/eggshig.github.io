@@ -585,9 +585,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function waitForPdfFonts() {
         if (!document.fonts?.ready) return;
+        const cyrillicSample = 'ӨҮөү Монгол хэл';
+        const fontLoads = [
+            document.fonts.load('400 12px "Noto Sans"', cyrillicSample),
+            document.fonts.load('600 12px "Noto Sans"', cyrillicSample),
+            document.fonts.load('700 12px "Noto Sans"', cyrillicSample),
+            document.fonts.load('800 12px "Noto Sans"', cyrillicSample),
+            document.fonts.load('600 12px "Noto Sans Mono"', cyrillicSample)
+        ].map(load => load.catch(() => []));
         await Promise.race([
-            document.fonts.ready,
-            new Promise(resolve => setTimeout(resolve, 3000))
+            Promise.all([...fontLoads, document.fonts.ready]),
+            new Promise(resolve => setTimeout(resolve, 5000))
         ]);
     }
 
@@ -826,7 +834,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const pdfExporter = await ensurePdfLibrary();
-            await waitForPdfFonts();
 
             // Create wrapper in DOM
             let wrapper = document.getElementById('pdf-template-wrapper');
@@ -838,6 +845,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Populate HTML
             wrapper.innerHTML = generateCvPdfHtml(exportLang);
+            await waitForPdfFonts();
 
             const filename = exportLang === 'mn'
                 ? 'CV_Чулуунцэцэг_Хонгор.pdf'
